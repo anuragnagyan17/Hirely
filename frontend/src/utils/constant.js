@@ -1,5 +1,5 @@
 
-const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL = "https://hirely-d701.onrender.com";
 
 export const USER_API_END_POINT = `${BACKEND_URL}/api/v1/user`;
 export const JOB_API_END_POINT = `${BACKEND_URL}/api/v1/job`;
