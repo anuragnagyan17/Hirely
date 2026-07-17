@@ -2,7 +2,15 @@ import jwt from "jsonwebtoken";
 
 const isAuthenticated = async (req, res, next) => {
     try {
-        const token = req.cookies.token;
+        // Parse token from Authorization header: Bearer <token>
+        const authHeader = req.headers.authorization;
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(401).json({
+                message: "User not authenticated",
+                success: false,
+            });
+        }
+        const token = authHeader.split(" ")[1];
         if (!token) {
             return res.status(401).json({
                 message: "User not authenticated",

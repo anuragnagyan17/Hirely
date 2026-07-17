@@ -37,6 +37,9 @@ const Login = () => {
                 withCredentials: true,
             });
             if (res.data.success) {
+                // Save the token to local storage for the Axios interceptor
+                localStorage.setItem("token", res.data.token);
+                
                 dispatch(setUser(res.data.user));
                 navigate("/");
                 toast.success(res.data.message);
