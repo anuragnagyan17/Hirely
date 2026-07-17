@@ -30,6 +30,10 @@ export const registerCompany = async (req, res) => {
         })
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            message: "Internal server error: " + error.message,
+            success: false
+        });
     }
 }
 export const getCompany = async (req, res) => {
@@ -48,6 +52,10 @@ export const getCompany = async (req, res) => {
         })
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            message: "Internal server error: " + error.message,
+            success: false
+        });
     }
 }
 // get company by id
@@ -67,6 +75,10 @@ export const getCompanyById = async (req, res) => {
         })
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            message: "Internal server error: " + error.message,
+            success: false
+        });
     }
 }
 export const updateCompany = async (req, res) => {
@@ -96,5 +108,9 @@ export const updateCompany = async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            message: "Internal server error: " + error.message,
+            success: false
+        });
     }
 }
